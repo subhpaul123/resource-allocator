@@ -74,7 +74,7 @@ export default function HomePage() {
       dynamicTyping: true,
       complete: async (results) => {
         const originalHeaders = Object.keys(results.data[0] || {})
-        const sampleRows = results.data.slice(0, 5)
+        const sampleRows = results.data.slice(0, 5) as Record<string, unknown>[]
         const headerMapping = await mapHeaders(originalHeaders, sampleRows, entity)
 
         const mappedData = (results.data as Record<string, unknown>[]).map(row => {
